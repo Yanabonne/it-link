@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-interface ButtonProps {
+type ButtonProps = {
   onClick: () => void;
   label: ReactNode;
-}
+};
 
 export default function Button({ onClick, label }: ButtonProps) {
   return (
