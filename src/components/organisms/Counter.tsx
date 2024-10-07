@@ -5,6 +5,7 @@ import React, {
   useState,
   useMemo,
   useCallback,
+  memo,
 } from "react";
 import useDebounce from "@/utils/debounce";
 import ButtonText from "../molecules/ButtonText";
@@ -33,15 +34,17 @@ export default function Counter({
   onIncrement,
   onDecrement,
 }: CounterProps) {
+  const ButtonTextMemo = memo(ButtonText);
+
   return (
     <div className="counter">
-      <p>{count}</p>
-      <ButtonText onClick={onIncrement} className="counter__button">
+      <Text>{count}</Text>
+      <ButtonTextMemo onClick={onIncrement} className="counter__button">
         Increment
-      </ButtonText>
-      <ButtonText onClick={onDecrement} className="counter__button">
+      </ButtonTextMemo>
+      <ButtonTextMemo onClick={onDecrement} className="counter__button">
         Decrement
-      </ButtonText>
+      </ButtonTextMemo>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 
 type TextProps = {
-  children: string;
+  children: string | number;
 } & HTMLAttributes<HTMLSpanElement>;
 
 export default function Text(props: TextProps) {

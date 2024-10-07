@@ -1,4 +1,4 @@
-import React, { memo, ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import Button from "../atoms/Button";
 import Text from "../atoms/Text";
 
@@ -14,4 +14,4 @@ function ButtonText(props: ButtonTextProps) {
   );
 }
 
-export default memo(ButtonText);
+export default ButtonText;
