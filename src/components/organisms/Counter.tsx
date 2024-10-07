@@ -7,6 +7,8 @@ import React, {
   useCallback,
 } from "react";
 import useDebounce from "@/utils/debounce";
+import ButtonText from "../molecules/ButtonText";
+import Text from "../atoms/Text";
 
 type CounterContextType = {
   count: number;
@@ -18,7 +20,35 @@ type CounterProviderProps = {
   children: ReactNode;
 };
 
+type CounterProps = {
+  count: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
+};
+
 const CounterContext = createContext<CounterContextType | undefined>(undefined);
+
+export default function Counter({
+  count,
+  onIncrement,
+  onDecrement,
+}: CounterProps) {
+  return (
+    <div className="counter">
+      <Text text={count} />
+      <ButtonText
+        label="Increment"
+        onClick={onIncrement}
+        buttonClass="counter__button"
+      />
+      <ButtonText
+        label="Decrement"
+        onClick={onDecrement}
+        buttonClass="counter__button"
+      />
+    </div>
+  );
+}
 
 function CounterProvider({ children }: CounterProviderProps) {
   const [countInternal, setCountInternal] = useState(0);

@@ -1,11 +1,11 @@
 import React from "react";
 import { useCounterContext } from "../organisms/Counter";
-import ButtonText from "../molecules/ButtonText";
+import Counter from "../organisms/Counter";
 
 export default function CounterView() {
   const { count, increment, decrement } = useCounterContext();
 
   return (
-    <ButtonText count={count} onIncrement={increment} onDecrement={decrement} />
+    <Counter count={count} onIncrement={increment} onDecrement={decrement} />
   );
 }

@@ -3,21 +3,15 @@ import Button from "../atoms/Button";
 import Text from "../atoms/Text";
 
 type ButtonTextProps = {
-  count: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
+  onClick: () => void;
+  label: string;
+  buttonClass: string;
 };
 
 export default function ButtonText({
-  count,
-  onIncrement,
-  onDecrement,
+  onClick,
+  label,
+  buttonClass,
 }: ButtonTextProps) {
-  return (
-    <div className="counter">
-      <Text text={count} />
-      <Button label="Increment" onClick={onIncrement} />
-      <Button label="Decrement" onClick={onDecrement} />
-    </div>
-  );
+  return <Button label={label} onClick={onClick} buttonClass={buttonClass} />;
 }
