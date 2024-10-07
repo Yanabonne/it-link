@@ -34,7 +34,9 @@ export default function Counter({
   onIncrement,
   onDecrement,
 }: CounterProps) {
-  const ButtonTextMemo = memo(ButtonText);
+  const ButtonTextMemo = useMemo(() => {
+    return ButtonText;
+  }, [ButtonText]);
 
   return (
     <div className="counter">
