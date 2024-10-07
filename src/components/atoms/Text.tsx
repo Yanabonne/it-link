@@ -1,5 +1,5 @@
 type TextProps = {
-  text: number;
+  text: string;
 };
 
 export default function Text({ text }: TextProps) {

@@ -35,7 +35,7 @@ export default function Counter({
 }: CounterProps) {
   return (
     <div className="counter">
-      <Text text={count} />
+      <p>{count}</p>
       <ButtonText
         label="Increment"
         onClick={onIncrement}

@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import Button from "../atoms/Button";
+import Text from "../atoms/Text";
 
 type ButtonTextProps = {
   onClick: () => void;
@@ -8,7 +9,11 @@ type ButtonTextProps = {
 };
 
 function ButtonText({ onClick, label, buttonClass }: ButtonTextProps) {
-  return <Button label={label} onClick={onClick} buttonClass={buttonClass} />;
+  return (
+    <Button onClick={onClick} buttonClass={buttonClass}>
+      <Text text={label} />
+    </Button>
+  );
 }
 
 export default memo(ButtonText);
