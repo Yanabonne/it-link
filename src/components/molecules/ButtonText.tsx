@@ -1,6 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
 import Button from "../atoms/Button";
-import Text from "../atoms/Text";
 
 type ButtonTextProps = {
   onClick: () => void;
@@ -8,10 +7,8 @@ type ButtonTextProps = {
   buttonClass: string;
 };
 
-export default function ButtonText({
-  onClick,
-  label,
-  buttonClass,
-}: ButtonTextProps) {
+function ButtonText({ onClick, label, buttonClass }: ButtonTextProps) {
   return <Button label={label} onClick={onClick} buttonClass={buttonClass} />;
 }
+
+export default memo(ButtonText);
