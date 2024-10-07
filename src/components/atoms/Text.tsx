@@ -1,7 +1,9 @@
-type TextProps = {
-  text: string;
-};
+import { HTMLAttributes } from "react";
 
-export default function Text({ text }: TextProps) {
-  return <span>{text}</span>;
+type TextProps = {
+  children: string;
+} & HTMLAttributes<HTMLSpanElement>;
+
+export default function Text(props: TextProps) {
+  return <span {...props}>{props.children}</span>;
 }

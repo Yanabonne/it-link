@@ -36,16 +36,12 @@ export default function Counter({
   return (
     <div className="counter">
       <p>{count}</p>
-      <ButtonText
-        label="Increment"
-        onClick={onIncrement}
-        buttonClass="counter__button"
-      />
-      <ButtonText
-        label="Decrement"
-        onClick={onDecrement}
-        buttonClass="counter__button"
-      />
+      <ButtonText onClick={onIncrement} className="counter__button">
+        Increment
+      </ButtonText>
+      <ButtonText onClick={onDecrement} className="counter__button">
+        Decrement
+      </ButtonText>
     </div>
   );
 }

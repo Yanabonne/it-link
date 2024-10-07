@@ -1,17 +1,15 @@
-import React, { memo } from "react";
+import React, { memo, ButtonHTMLAttributes } from "react";
 import Button from "../atoms/Button";
 import Text from "../atoms/Text";
 
 type ButtonTextProps = {
-  onClick: () => void;
-  label: string;
-  buttonClass: string;
-};
+  children: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-function ButtonText({ onClick, label, buttonClass }: ButtonTextProps) {
+function ButtonText(props: ButtonTextProps) {
   return (
-    <Button onClick={onClick} buttonClass={buttonClass}>
-      <Text text={label} />
+    <Button {...props}>
+      <Text>{props.children}</Text>
     </Button>
   );
 }
