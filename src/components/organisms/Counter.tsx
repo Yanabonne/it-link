@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useCallback,
   memo,
+  ButtonHTMLAttributes,
 } from "react";
 import useDebounce from "@/utils/debounce";
 import ButtonText from "../molecules/ButtonText";
@@ -27,30 +28,30 @@ type CounterProps = {
   onDecrement: () => void;
 };
 
+type ButtonTextProps = {
+  children: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
 const CounterContext = createContext<CounterContextType | undefined>(undefined);
+
+const ButtonTextMemo = memo(function (props: ButtonTextProps) {
+  return (
+    <ButtonText onClick={props?.onClick} className="counter__button">
+      {props.children}
+    </ButtonText>
+  );
+});
 
 export default function Counter({
   count,
   onIncrement,
   onDecrement,
 }: CounterProps) {
-  const ButtonTextIncrement = useMemo(() => {
-    return ButtonText;
-  }, [ButtonText]);
-
-  const ButtonTextDecrement = useMemo(() => {
-    return ButtonText;
-  }, [ButtonText]);
-
   return (
     <div className="counter">
       <Text>{count}</Text>
-      <ButtonTextIncrement onClick={onIncrement} className="counter__button">
-        Increment
-      </ButtonTextIncrement>
-      <ButtonTextDecrement onClick={onDecrement} className="counter__button">
-        Decrement
-      </ButtonTextDecrement>
+      <ButtonTextMemo onClick={onIncrement}>Increment</ButtonTextMemo>
+      <ButtonTextMemo onClick={onDecrement}>Decrement</ButtonTextMemo>
     </div>
   );
 }

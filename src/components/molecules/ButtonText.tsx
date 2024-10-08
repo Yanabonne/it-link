@@ -7,6 +7,7 @@ type ButtonTextProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 function ButtonText(props: ButtonTextProps) {
+  console.log(`${props.children}`);
   return (
     <Button {...props}>
       <Text>{props.children}</Text>
