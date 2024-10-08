@@ -34,19 +34,23 @@ export default function Counter({
   onIncrement,
   onDecrement,
 }: CounterProps) {
-  const ButtonTextMemo = useMemo(() => {
+  const ButtonTextIncrement = useMemo(() => {
+    return ButtonText;
+  }, [ButtonText]);
+
+  const ButtonTextDecrement = useMemo(() => {
     return ButtonText;
   }, [ButtonText]);
 
   return (
     <div className="counter">
       <Text>{count}</Text>
-      <ButtonTextMemo onClick={onIncrement} className="counter__button">
+      <ButtonTextIncrement onClick={onIncrement} className="counter__button">
         Increment
-      </ButtonTextMemo>
-      <ButtonTextMemo onClick={onDecrement} className="counter__button">
+      </ButtonTextIncrement>
+      <ButtonTextDecrement onClick={onDecrement} className="counter__button">
         Decrement
-      </ButtonTextMemo>
+      </ButtonTextDecrement>
     </div>
   );
 }
